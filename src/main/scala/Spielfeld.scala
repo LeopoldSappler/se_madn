@@ -2,6 +2,7 @@ object Spielfeld {
   def main(args: Array[String]): Unit = {
     print(zeigeSpielfeld())
   }
+
   def zeileA = "o o - - O a O - - o o\n"
   def zeileB = "- - - - O b O - - - -\n"
   def zeileC = "- - - - O c O - - - -\n"
