@@ -1,24 +1,25 @@
-object Spielfeld {
-  def main(args: Array[String]): Unit = {
-    print(zeigeSpielfeld())
+val playerCount = 2
+
+var boardStart: Array[Int] = init()
+var boardPlay: Array[Int] = Array.fill[Int](40)(0)
+var boardFinish: Array[Int] = Array.fill[Int](playerCount * 4)(0)
+
+def init(): Array[Int] = {
+  var array: Array[Int] = Array()
+  for(i <- 1 to playerCount) {
+    for (j <- 1 to 4) {
+      array = array :+ i
+    }
   }
-
-  def zeileA = "o o - - O a O - - o o\n"
-  def zeileB = "- - - - O b O - - - -\n"
-  def zeileC = "- - - - O c O - - - -\n"
-
-  def zeigeSpielfeld(): String = {
-    var stringBuilder = new StringBuilder()
-    stringBuilder.append("o o - - O O A - - o o\n")
-    stringBuilder.append(zeileA).append(zeileB).append(zeileC)
-    stringBuilder.append("A O O O O d O O O O O\n")
-    stringBuilder.append("O a b c d - d c b a O\n")
-    stringBuilder.append("O O O O O d O O O O A\n")
-    stringBuilder.append(zeileC).append(zeileB).append(zeileA)
-    stringBuilder.append("o o - - A O O - - o o\n\n")
-    stringBuilder.append("Legende: o - Figurenfeld, O - Lauffeld, (a,b,c,d) - Zielfelder, A - Startfeld")
-
-    stringBuilder.toString()
-  }
+  array
 }
+
+@main def main(): Unit = print(showBoard())
+
+def showBoard(): String = {
+  boardStart.mkString("(", ", ", ")") + "\n"
+  + boardPlay.mkString("(", ", ", ")") + "\n"
+  + boardFinish.mkString("(", ", ", ")")
+}
+
 
