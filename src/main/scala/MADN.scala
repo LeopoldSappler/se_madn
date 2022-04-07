@@ -1,6 +1,7 @@
 class MADN {
-  val playerCount = 4
-  val playFieldCount = 40
+  var playerCount = 4
+  var playFieldCount = 40
+  private val eol = sys.props("line.separator")
 
   def startFields(Player: Int = playerCount): String =
     var str = ""
@@ -9,13 +10,13 @@ class MADN {
         str = str + i + " "
       }
     }
-    str + "\n"
+    str + eol
 
   def playFields(Field: Int = playFieldCount): String =
-    ("0" * Field) + "\n"
+    ("0" * Field) + eol
 
   def finishFields(Player: Int = playerCount): String =
-    (("_" * 4) + " ") * Player + "\n"
+    (("_" * 4) + " ") * Player + eol
 
   val board: String = startFields() + playFields() + finishFields()
 
