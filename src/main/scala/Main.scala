@@ -1,4 +1,4 @@
-val playerCount = 2
+val playerCount = 4
 val playFieldCount = 40
 
 def startFields(Player: Int = playerCount): String =
