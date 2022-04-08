@@ -5,6 +5,18 @@ class MADNSpec extends AnyWordSpec{
   val madn = new MADN
   private val eol = sys.props("line.separator")
 
+  "playerCount" in {
+    madn.playerCount should be (4)
+  }
+
+  "playerField" in {
+    madn.playFieldCount should be (40)
+  }
+
+  "eol" in {
+    madn.eol should be (sys.props("line.separator"))
+  }
+
   "madn" should {
     "print 4 start fields for every player from playerCount" in {
       madn.playerCount = 1
@@ -31,6 +43,9 @@ class MADNSpec extends AnyWordSpec{
       madn.print() should be ("1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 " + eol
         + "0000000000000000000000000000000000000000" + eol
         + "____ ____ ____ ____ " + eol)
+    }
+    "print madn.board include" in {
+      madn.board should (include("0") and include("1") and include("2") and include("3") and include("4") and include("_"))
     }
   }
 }
