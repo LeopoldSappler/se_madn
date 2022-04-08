@@ -28,8 +28,6 @@ class MADN {
 object MADN {
   @main def main(): Unit = {
     val madn = new MADN()
-    madn.playerCount = 4
-    madn.playFieldCount = 40
     println(madn.print())
   }
 }

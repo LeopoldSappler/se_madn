@@ -32,9 +32,5 @@ class MADNSpec extends AnyWordSpec{
         + "0000000000000000000000000000000000000000" + eol
         + "____ ____ ____ ____ " + eol)
     }
-
-    "print" in {
-      madn.board should (include("0") and include("1") and include("2") and include("3") and include("4") and include("_"))
-    }
   }
 }
