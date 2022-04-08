@@ -1,5 +1,5 @@
+import org.scalatest.matchers.should.Matchers.*
 import org.scalatest.wordspec.AnyWordSpec
-import org.scalatest.matchers.should.Matchers._
 
 class MADNSpec extends AnyWordSpec{
   val madn = new MADN
