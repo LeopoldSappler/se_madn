@@ -26,5 +26,11 @@ class MADNSpec extends AnyWordSpec{
       madn.playerCount = 4
       madn.finishFields() should be ("____ ____ ____ ____ " + eol)
     }
+
+    "print the board" in {
+      madn.print() should be ("1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 " + eol
+        + "0000000000000000000000000000000000000000" + eol
+        + "____ ____ ____ ____ " + eol)
+    }
   }
 }
