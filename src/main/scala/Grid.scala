@@ -1,23 +1,33 @@
+import scala.language.postfixOps
+
 class Grid(val playerCount: Int) {
   var playFieldCount = 40
+  var startField = new Array[Int](playerCount * 4)
+  var playField = new Array[Int](playFieldCount)
+  var finishField = new Array[Int](playerCount * 4)
   val eol: String = sys.props("line.separator")
 
-  def startFields(Player: Int = playerCount): String =
-    var str = ""
-    for (i <- 1 to Player) {
+  def startFields(): Array[Int] =
+    var index = 0
+    for (i <- 1 to playerCount) {
       for (_ <- 1 to 4) {
-        str = str + i + " "
+        startField(index) = i
+        index = index + 1
       }
     }
-    str + eol
+    startField
 
-  def playFields(Field: Int = playFieldCount): String =
-    ("0" * Field) + eol
+  def playFields(): Array[Int] =
+    for (i <- playField.indices)
+      playField(i) = 0
+    playField
 
-  def finishFields(Player: Int = playerCount): String =
-    (("_" * 4) + " ") * Player + eol
+  def finishFields(): Array[Int] =
+    for (i <- finishField.indices)
+      finishField(i) = 0
+    finishField
 
-  val board: String = startFields() + playFields() + finishFields()
+  val board: String = startFields().mkString(" ") + eol + playFields().mkString("") + eol + finishFields().mkString("") + eol
 
   override def toString: String = board
 }
