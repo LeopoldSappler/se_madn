@@ -17,4 +17,5 @@ class TUI {
       case "d" => println("Du hast eine " + dice.roll() + " gewürfelt.")
       case _ => println("Falscher Input")
     inputLoop(grid)
+
 }
