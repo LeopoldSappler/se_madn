@@ -1,6 +1,6 @@
 class Grid(playerCount: Int) {
   var playFieldCount = 40
-  val eol = sys.props("line.separator")
+  val eol: String = sys.props("line.separator")
 
   def startFields(Player: Int = playerCount): String =
     var str = ""
