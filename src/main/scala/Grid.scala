@@ -2,9 +2,9 @@ import scala.language.postfixOps
 
 class Grid(val playerCount: Int) {
   var playFieldCount = 40
-  var startField = new Array[Int](playerCount * 4)
-  var playField = new Array[Int](playFieldCount)
-  var finishField = new Array[Int](playerCount * 4)
+  val startField = new Array[Int](playerCount * 4)
+  val playField = new Array[Int](playFieldCount)
+  val finishField = new Array[Int](playerCount * 4)
   val eol: String = sys.props("line.separator")
 
   def startFields(): Array[Int] =
