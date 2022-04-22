@@ -1,4 +1,4 @@
-class Grid(playerCount: Int) {
+class Grid(val playerCount: Int) {
   var playFieldCount = 40
   val eol: String = sys.props("line.separator")
 
