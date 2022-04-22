@@ -41,12 +41,12 @@ class MADNSpec extends AnyWordSpec{
     }
 
     "print the board" in {
-      grid.print() should be ("1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 " + eol
+      grid.toString() should be ("1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 " + eol
         + "0000000000000000000000000000000000000000" + eol
         + "____ ____ ____ ____ " + eol)
     }
     "print grid.board include" in {
-      grid.board should (include("0") and include("1") and include("2") and include("3") and include("4") and include("_"))
+      grid.board should include("0").and(include("1")).and(include("2")).and(include("3")).and(include("4")).and(include("_"))
     }
   }
 }

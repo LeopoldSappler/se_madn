@@ -3,4 +3,4 @@
   println("------------------------")
   val tui = new TUI
   val grid = tui.start()
-  println(grid.print())
+  println(grid.toString())

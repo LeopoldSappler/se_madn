@@ -19,7 +19,5 @@ class Grid(val playerCount: Int) {
 
   val board: String = startFields() + playFields() + finishFields()
 
-  def print(): String = {
-    board
-  }
+  override def toString: String = board
 }
