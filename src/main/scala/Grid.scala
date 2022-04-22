@@ -30,5 +30,4 @@ class Grid(val playerCount: Int) {
   val board: String = startFields().mkString(" ") + eol + playFields().mkString("") + eol + finishFields().mkString("") + eol
 
   override def toString: String = board
-
 }
