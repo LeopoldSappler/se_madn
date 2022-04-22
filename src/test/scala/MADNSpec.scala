@@ -2,15 +2,15 @@ import org.scalatest.matchers.should.Matchers.*
 import org.scalatest.wordspec.AnyWordSpec
 
 class MADNSpec extends AnyWordSpec{
-  val madn = new MADN
+  val grid = new Grid(4)
   private val eol = sys.props("line.separator")
 
   "playerCount" in {
-    madn.playerCount should be (4)
+    grid.playerCount should be (4)
   }
 
   "playerField" in {
-    madn.playFieldCount should be (40)
+    grid.playFieldCount should be (40)
   }
 
   "eol" in {
