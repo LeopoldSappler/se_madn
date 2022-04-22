@@ -2,18 +2,19 @@ import org.scalatest.matchers.should.Matchers.*
 import org.scalatest.wordspec.AnyWordSpec
 
 class MADNSpec extends AnyWordSpec{
-  val grid = new Grid(4)
-  private val eol = sys.props("line.separator")
 
   "playerCount" in {
+    val grid = new Grid(4)
     grid.playerCount should be (4)
   }
 
   "playerField" in {
+    val grid = new Grid(4)
     grid.playFieldCount should be (40)
   }
 
   "eol" in {
+    val grid = new Grid(4)
     grid.eol should be (sys.props("line.separator"))
   }
 
@@ -39,6 +40,8 @@ class MADNSpec extends AnyWordSpec{
     }
 
     "print the board" in {
+      val grid = new Grid(4)
+      val eol: String = sys.props("line.separator")
       grid.toString() should be ("1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4" + eol
         + "0000000000000000000000000000000000000000" + eol
         + "0000000000000000" + eol)
