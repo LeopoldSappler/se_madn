@@ -1,3 +1,5 @@
+package controller
+
 import scala.util.Random
 
 class Dice {
