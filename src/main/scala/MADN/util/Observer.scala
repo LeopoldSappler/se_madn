@@ -1,4 +1,4 @@
-package util
+package MADN.util
 
 trait Observer {
   def update: Unit

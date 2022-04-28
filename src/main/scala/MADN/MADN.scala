@@ -1,3 +1,5 @@
+package MADN
+
 @main def main(): Unit =
   println("Mensch ärgere dich nicht")
   println("------------------------")

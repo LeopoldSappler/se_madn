@@ -1,4 +1,4 @@
-package model
+package MADN.model
 
 import scala.language.postfixOps
 
