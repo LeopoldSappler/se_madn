@@ -13,4 +13,10 @@ import scala.io.StdIn.readLine
   val grid: Grid = Grid (playerCount)
   val controller = new Controller(grid)
   val tui = TUI(controller)
-  tui.inputLoop(grid)
+  
+  var input: String = ""
+  
+  while (input != "q")
+    println(controller.gridToString)
+    input = readLine()
+    println(tui.processInput(input))

@@ -11,14 +11,9 @@ case class TUI (controller : Controller) extends Observer {
   controller.add(this)
   val eol: String = sys.props("line.separator")
 
-  def inputLoop(grid : Grid) : Unit =
-    println(eol + grid.toString)
-    val input = readLine("Input: ")
+  def processInput(input: String) : String =
     input match
-      case "q" => return
-      case "d" => println("Du hast eine " + controller.rollDice + " gewürfelt.")
-      case _ => println("Falscher Input")
-    inputLoop(grid)
-
+      case "d" => ("Du hast eine " + controller.rollDice + " gewürfelt.")
+      case _ => ("Falscher Input")
   override def update(): Unit =  println(controller.gridToString)
 }
