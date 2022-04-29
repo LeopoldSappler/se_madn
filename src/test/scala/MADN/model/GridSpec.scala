@@ -1,7 +1,10 @@
+package MADN.model
+
+import MADN.model.Grid
 import org.scalatest.matchers.should.Matchers.*
 import org.scalatest.wordspec.AnyWordSpec
 
-class MADNSpec extends AnyWordSpec{
+class GridSpec extends AnyWordSpec{
 
   "playerCount" in {
     val grid = new Grid(4)

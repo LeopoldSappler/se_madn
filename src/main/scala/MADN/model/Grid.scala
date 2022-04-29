@@ -1,3 +1,5 @@
+package MADN.model
+
 import scala.language.postfixOps
 
 class Grid(val playerCount: Int) {
