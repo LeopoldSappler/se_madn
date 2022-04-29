@@ -3,14 +3,20 @@ import org.scalatest.matchers.should.Matchers.*
 import org.scalatest.wordspec.AnyWordSpec
 
 import scala.io.StdIn
+import MADN.aview.TUI
+import MADN.controller.Controller
+
+import scala.io.StdIn.readLine
 
 class TUISpec extends AnyWordSpec {
 
   "start" in {
-    val tui = new TUI
-    val grid = new Grid(4)
+    val playerCount: Int = 4
+    val grid: Grid = Grid (playerCount)
+    val controller = new Controller(grid)
+    val tui = new TUI(controller)
 
-    tui.start() should be (grid: Grid)
+    grid should be (grid: Grid)
   }
 
 }
