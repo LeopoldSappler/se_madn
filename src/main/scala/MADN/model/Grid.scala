@@ -9,10 +9,11 @@ class Grid(val playerCount: Int) {
   val tempFinishField = new Array[Int](playerCount * 4)
   val eol: String = sys.props("line.separator")
 
-  val startField: Array[Int] = startFields()
-  val playField: Array[Int] = playFields()
-  val finishField: Array[Int] = finishFields()
+  val startField: Array[Int] = Start.startFields()
+  val playField: Array[Int] = Play.playFields()
+  val finishField: Array[Int] = Finish.finishFields()
 
+object Start {
   def startFields(): Array[Int] =
     var index = 0
     for (i <- 1 to playerCount) {
@@ -22,17 +23,21 @@ class Grid(val playerCount: Int) {
       }
     }
     tempStartField
+}
 
+object Play {
   def playFields(): Array[Int] =
     for (i <- tempPlayField.indices)
       tempPlayField(i) = 0
     tempPlayField
+}
 
+object Finish {
   def finishFields(): Array[Int] =
     for (i <- tempFinishField.indices)
       tempFinishField(i) = 0
     tempFinishField
-
+}
   override def toString: String =
     startField.mkString(" ") + eol + playField.mkString("") + eol + finishField.mkString("") + eol
 }

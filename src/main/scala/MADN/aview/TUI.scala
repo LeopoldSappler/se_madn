@@ -27,21 +27,31 @@ case class TUI (controller : Controller) extends Observer {
 
 
   def processMove(diceValue: Int, player : Int): Unit =
-    if (diceValue == 6 && !controller.grid.playField.contains(player))
-      println("Da du eine 6 gewürfelt hast, kannst du eine Figur aus den Startfeldern spielen!")
-      setupPlayer(player)
-    else if (diceValue == 6 && controller.grid.startField.contains(player))
-      println("Figur im Startfeld aber auch Figuren im Spielfeld. schreibe start oder spiel")
-      readLine() match
-        case "start" => setupPlayer(player)
-        case "spiel" => {
-          for (i <- controller.grid.playField.indices)
-            if (controller.grid.playField(i) == player)
-              println("Player " + player + " hat eine Figur bei: " + i)
-          println(controller.grid.toString)
-          val field: Int = readLine().toInt
-          move(player, field, field + diceValue)
+
+    object context {
+          var strategy = if (diceValue == 6 && !controller.grid.playField.contains(player)) strategy1 else if (diceValue == 6 && controller.grid.startField.contains(player)) strategy2
+
+          def strategy1 = {
+            println("Da du eine 6 gewürfelt hast, kannst du eine Figur aus den Startfeldern spielen!")
+            setupPlayer(player)
+          }
+
+          def strategy2 = {
+            println("Figur im Startfeld aber auch Figuren im Spielfeld. schreibe start oder spiel")
+          readLine() match
+            case "start" => setupPlayer(player)
+            case "spiel" => {
+              for (i <- controller.grid.playField.indices)
+                if (controller.grid.playField(i) == player)
+                  println("Player " + player + " hat eine Figur bei: " + i)
+              println(controller.grid.toString)
+              val field: Int = readLine().toInt
+              move(player, field, field + diceValue)
+            }
         }
+    }
+    context.strategy
+
 
   def setupPlayer(player: Int): Unit =
     for (i <- controller.grid.startField.indices)
