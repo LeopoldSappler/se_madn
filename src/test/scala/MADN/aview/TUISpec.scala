@@ -11,8 +11,6 @@ import scala.io.StdIn.readLine
 
 class TUISpec extends AnyWordSpec with Matchers{
 
-  val board = Board(4)
-  val controller = new Controller(board)
-  val tui: TUI = TUI(controller)
+  
 
 }
